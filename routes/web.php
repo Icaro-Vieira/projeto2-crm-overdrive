@@ -1,6 +1,10 @@
 <?php
 
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +16,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Antes
+//Route::get('/companies/', function () {
+//    return view('auth.companies.index');
+//});
+
+// CONTROLLERS
+Route::resource('companies', CompanyController::class);
+Route::resource('employees', EmployeeController::class);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes(['register' => false]); // impede de registrar pela URL
+

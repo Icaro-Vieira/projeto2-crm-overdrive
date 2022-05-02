@@ -19,8 +19,7 @@ class CreateCompaniesTable extends Migration
             $table->string('email')->unique();
             $table->string('logo')->nullable();
             $table->string('website')->nullable();
-            $table->timestamps();
-            // boa prática para ver quando foi criado
+            $table->timestamps(); // ver quando foi criado.
         });
     }
 
