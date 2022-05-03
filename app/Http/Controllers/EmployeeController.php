@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use App\Http\Requests\EmployeeRequest;
 
 class EmployeeController extends Controller
 {
@@ -15,7 +16,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::with('company')->paginate(2); // Traz 10 dados por pág.
+        $employees = Employee::with('company')->paginate(10); // Traz 10 dados por pág.
         return view('auth.employees.index', compact('employees'));
     }
 
@@ -36,7 +37,7 @@ class EmployeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(EmployeeRequest $request)
     {
         Employee::Create(
             [
@@ -71,7 +72,8 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        $employee = Employee::find($id);
+        $employee = Employee::with('company')->find($id);
+
         return view('auth.employees.edit', compact('employee'));
     }
 
@@ -82,7 +84,7 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(EmployeeRequest $request, $id)
     {
         $data = $request->all();
 
@@ -97,10 +99,13 @@ class EmployeeController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
-        //
+        $employee = Employee::find($id);
+        $employee->delete();
+
+        return redirect()->route('employees.index');
     }
 }

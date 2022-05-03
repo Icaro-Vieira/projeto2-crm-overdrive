@@ -28,7 +28,11 @@
                 <td>{{$employee->company->name}}</td>
                 <td>
                     <a class="btn btn-primary" href="{{route('employees.edit', ['employee' => $employee->id])}}" role="button">Edit</a>
-                    <a class="btn btn-danger" href="{{route('employees.destroy', ['employee' => $employee->id])}}" role="button">Delete</a>
+                    <form action="{{route('employees.destroy', ['employee' => $employee->id])}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
                 </td>
             </tr>
         @empty
@@ -37,6 +41,6 @@
             </tr>
         @endforelse
         </tbody>
-        {{ $employees->links() }}
     </table>
+    {{ $employees->links() }}
 @endsection

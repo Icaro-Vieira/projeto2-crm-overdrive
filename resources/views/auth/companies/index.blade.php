@@ -24,7 +24,11 @@
                     <td>{{$company->website}}</td>
                     <td>
                         <a class="btn btn-primary" href="{{route('companies.edit', ['company' => $company->id])}}" role="button">Edit</a>
-                        <a class="btn btn-danger" href="{{route('companies.destroy', ['company' => $company->id])}}" role="button">Delete</a>
+                        <form action="{{route('companies.destroy', ['company' => $company->id])}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
                     </td>
                 </tr>
             @empty
