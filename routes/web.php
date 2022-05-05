@@ -22,8 +22,8 @@ use App\Http\Controllers\EmployeeController;
 //});
 
 // CONTROLLERS
-Route::resource('companies', CompanyController::class);
-Route::resource('employees', EmployeeController::class);
+Route::resource('companies', CompanyController::class)->middleware('auth');
+Route::resource('employees', EmployeeController::class)->middleware('auth');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
