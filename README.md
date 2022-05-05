@@ -1,64 +1,100 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/78177376/166720720-748acd8f-19d9-487e-aedd-bcd05c31e4ec.png" width="700"></p>
 
+<div align="center">
+    <h2><strong>PROJETO ESTÁGIO OVERDRIVE | UTILIZANDO - LARAVEL E DOCKER:</strong></h2>
+</div>
+
+## RESUMO DO PROJETO DESENVOLVIDO:
+
+Desenvolver e Preencher um Mini-CRM para controlar os dados básicos de Empresas e Funcionários, utilizando **Laravel no Back-end**. <br>
+
+<strong>TECNOLOGIAS UTILIZADAS:</strong>
+- HTML + CSS *(Bootstrap)*
+- Laravel + Docker *(Laradock)*
+- Banco de dados - MySql *(PhpMyAdmin)*
+- Nginx *(Servidor)*
+ 
+
+
+## O QUE É LARAVEL?
+
+Laravel é um framework PHP livre e open-source para o desenvolvimento de sistemas web que utilizam o padrão MVC. <br>
+*link: (https://laravel.com/)*
+
+## O QUE É DOCKER?
+
+Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres.<br>
+*link: (https://www.docker.com/)*
+
+
+## SOBRE O LARADOCK
+
+Laradock é um importante e reconhecido projeto criado pela comunidade do PHP com configurações prontas para trabalhar com Laravel, utilizando o Docker.
+*link: (https://laradock.io/)*
+
+
+<div align="center">
+  <h2><strong>PASSO A PASSO DE COMO UTILIZAR O CRM:</strong></h2>
+</div>
+
+# Preparando o ambiente: 
+<br>
+1º. Para conseguir executar o CRM, Você precisa ter o Docker instalado, Caso não tenha o Docker siga o passo a passo abaixo:
+<br>
+Primeiro acesse o site oficial do docker e faça o download (https://www.docker.com/get-started/), crie sua conta e siga com as etapas de Instalação!
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+    <img src="https://user-images.githubusercontent.com/78177376/166486196-6979a9ea-6963-4564-990b-214d49a2f4b1.png" width="600">
 </p>
 
-## About Laravel
+2º. Depois de ter instalado o docker, Faça o Clone DESSE REPOSITORIO para o seu Computador;
+<br>
+- Utilize o comando *```git clone https://github.com/Icaro-Vieira/projeto2-crm-overdrive.git```* em seu Git Bash.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+3º. Depois de clonado, clone também dentro da pasta do projeto, o laradock (https://laradock.io/getting-started/);
+<br>
+- Utilize o comando *```git clone https://github.com/laradock/laradock.git```*
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+4º. Dentro da pasta do LARADOCK no projeto, faça uma copia do arquivo ```.env.example``` e altere o nome para ```.env``` apenas!.
+<br>
+- para copiar basta selecionar o arquivo e apertar as teclas ```Ctrl + C``` e depois ```Ctrl + V```, clique na cópia com o botão direito do mouse e vai até a opção de ```Renomear```;
+- Abra o arquivo com algum editor de texto, e coloque os segintes dados da maneira que esta descrito: 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```COMPOSE_PROJECT_NAME=myproject ``` <br>
+```PHP_VERSION=7.4 ``` <br>
+```MYSQL_VERSION=latest ``` <br>
+```MYSQL_DATABASE=default ``` <br>
+```MYSQL_USER=default ``` <br>
+```MYSQL_PASSWORD=secret ``` <br>
+```MYSQL_PORT=8306 ``` <br>
+```MYSQL_ROOT_PASSWORD=root ``` <br>
+```MYSQL_ENTRYPOINT_INITDB=./mysql/docker-entrypoint-initdb.d ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+5º. Feito a etapa anterior, Abra o Prompt de Comando (CMD) ou o GitBash, entre na pasta "laradock". 
+<br>
+- E execute o seguinte comando: *```docker-compose up -d nginx mysql phpmyadmin```* (Esse comando vai Estartar (Iniciar) o servidor, carregar o banco de dados e seu SGBD). Aguarde um pouco até todos os containers ficarem ativos.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<br>
 
-### Premium Partners
+6º. Abra novamente o seu CMD e execute o seguinte comando: *```docker-compose exec --user=laradock workspace bash```*, Aguarde a outra linha de comando do bash do Docker aparecer e digite o comando para gerar as migrations do banco de dados *```php artisan migrate```* (O comando php artisan migrate é responsável por gerar as migrações (tabelas) no banco de dados!), Aguarde aparecer a mensagem de sucesso e insira o último comando para gerar as seeds *```php artisan db: seed```* (O comando php artisan db:seed irá gerar seu usuário admin no banco de dados!)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+<br>
 
-## Contributing
+**7º. Abra seu navegador e coloque na URL: "localhost:8888" para testar e ter acesso ao projeto.**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+[] Arrumar o env do projeto e do laradock
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+[] criar banco de dados com mesmo nome do .env de dentro do projeto
 
-## Security Vulnerabilities
+Alterei no .env 
+- DB_PASSWORD=root
+- DB_HOST=mysql
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+[] rodar comando: php artisan key:generate
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+[] rodar o comando php artisan storage:link
