@@ -72,21 +72,53 @@ Primeiro acesse o site oficial do docker e faça o download (https://www.docker.
 ```MYSQL_ENTRYPOINT_INITDB=./mysql/docker-entrypoint-initdb.d ```
 
 
-4º. Dentro da pasta do PROJETO, faça uma copia do arquivo ```.env.example``` e altere o nome para ```.env``` apenas!.
+4º. Dentro da pasta do PROJETO, faça o mesmo passo anterior, uma copia do arquivo ```.env.example``` e altere o nome para ```.env```.
 <br>
-- para copiar basta selecionar o arquivo e apertar as teclas ```Ctrl + C``` e depois ```Ctrl + V```, clique na cópia com o botão direito do mouse e vai até a opção de ```Renomear```;
-- Abra o arquivo que você renomeou, com algum editor de texto, e coloque os segintes dados da maneira que esta descrito: 
+- Abra o arquivo ```.env``` que da pasta do PROJETO que você renomeou, com algum editor de texto, e também coloque os segintes dados da maneira que esta descrito: 
 
 
 
 
 5º. Feito a etapa anterior, Abra o Prompt de Comando (CMD) ou o GitBash, entre na pasta "laradock". 
 <br>
-- E execute o seguinte comando: *```docker-compose up -d nginx mysql phpmyadmin```* (Esse comando vai Estartar (Iniciar) o servidor, carregar o banco de dados e seu SGBD). Aguarde um pouco até todos os containers ficarem ativos.
+- E execute o seguinte comando: *```docker-compose up -d nginx mysql phpmyadmin```* (Esse comando vai criar e estartar (Iniciar) o servidor, carregar o banco de dados e seu SGBD). Aguarde um pouco até todos os containers ficarem ativos.
+
+- Execute o comando ```docker ps``` para verificar as portas do projeto: 
+<br>
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/78177376/166983556-4a0c0b1b-3328-4ea1-bd3f-920d0e95f673.png" width="800">
+</p>
+
+- Verifique a porta do seu phpmyadmin e coloque no seu navegador: ```localhost:sua porta```:
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/78177376/166999846-c31b6dc8-1884-4e25-84a6-981e1a15e36d.png" widht="600">
+</p>
+
+- Vai aparecer essa tela: preencha os campos dessa maneira e clique em continuar!
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/78177376/167002443-ef008e8a-4704-4428-b77f-d6ba0744cd85.png" widht="600">
+</p>
+
+- Apos fazer isso, crie o banco de dados com o nome que está no seu ``` DB_DATABASE=projeto_crm ```
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/78177376/167003979-35006a17-d3f4-4c3c-8d46-7a6084bb022d.png" widht="600">
+    <img src="https://user-images.githubusercontent.com/78177376/167005256-abd99756-7c79-4baa-8c7f-d653f43dbb84.png" widht="600">
+</p>
+
 
 <br>
 
-6º. Abra novamente o seu CMD e execute o seguinte comando: *```docker-compose exec --user=laradock workspace bash```*, Aguarde a outra linha de comando do bash do Docker aparecer e digite o comando para gerar as migrations do banco de dados *```php artisan migrate```* (O comando php artisan migrate é responsável por gerar as migrações (tabelas) no banco de dados!), Aguarde aparecer a mensagem de sucesso e insira o último comando para gerar as seeds *```php artisan db: seed```* (O comando php artisan db:seed irá gerar seu usuário admin no banco de dados!)
+6º. Abra novamente o seu CMD e execute o seguinte comando: <br>
+- *```docker-compose exec --user=laradock workspace bash```*, Aguarde a outra linha de comando do bash do Docker aparecer
+- E digite o comando para gerar uma chave para seu ```.env```! utilize o comando ```php artisan key:generate``` para gerar a chave. 
+
+# Configurando o Banco de Dados:
+
+
+
+
+- as migrations do banco de dados *```php artisan migrate```* (O comando php artisan migrate é responsável por gerar as migrações (tabelas) no banco de dados!), Aguarde aparecer a mensagem de sucesso e insira o último comando para gerar as seeds *```php artisan db: seed```* (O comando php artisan db:seed irá gerar seu usuário admin no banco de dados!)
 
 <br>
 
@@ -101,8 +133,6 @@ Alterei no .env
 - DB_PASSWORD=root
 - DB_HOST=mysql
 
-
-[ ] rodar comando: php artisan key:generate
 
 
 [ ] rodar o comando php artisan storage:link
