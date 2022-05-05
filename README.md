@@ -59,7 +59,7 @@ Primeiro acesse o site oficial do docker e faça o download (https://www.docker.
 4º. Dentro da pasta do LARADOCK no projeto, faça uma copia do arquivo ```.env.example``` e altere o nome para ```.env``` apenas!.
 <br>
 - para copiar basta selecionar o arquivo e apertar as teclas ```Ctrl + C``` e depois ```Ctrl + V```, clique na cópia com o botão direito do mouse e vai até a opção de ```Renomear```;
-- Abra o arquivo com algum editor de texto, e coloque os segintes dados da maneira que esta descrito: 
+- Abra o arquivo que você renomeou, com algum editor de texto, e coloque os segintes dados da maneira que esta descrito: 
 
 ```COMPOSE_PROJECT_NAME=myproject ``` <br>
 ```PHP_VERSION=7.4 ``` <br>
@@ -70,6 +70,14 @@ Primeiro acesse o site oficial do docker e faça o download (https://www.docker.
 ```MYSQL_PORT=8306 ``` <br>
 ```MYSQL_ROOT_PASSWORD=root ``` <br>
 ```MYSQL_ENTRYPOINT_INITDB=./mysql/docker-entrypoint-initdb.d ```
+
+
+4º. Dentro da pasta do PROJETO, faça uma copia do arquivo ```.env.example``` e altere o nome para ```.env``` apenas!.
+<br>
+- para copiar basta selecionar o arquivo e apertar as teclas ```Ctrl + C``` e depois ```Ctrl + V```, clique na cópia com o botão direito do mouse e vai até a opção de ```Renomear```;
+- Abra o arquivo que você renomeou, com algum editor de texto, e coloque os segintes dados da maneira que esta descrito: 
+
+
 
 
 5º. Feito a etapa anterior, Abra o Prompt de Comando (CMD) ou o GitBash, entre na pasta "laradock". 
@@ -85,16 +93,16 @@ Primeiro acesse o site oficial do docker e faça o download (https://www.docker.
 **7º. Abra seu navegador e coloque na URL: "localhost:8888" para testar e ter acesso ao projeto.**
 
 
-[] Arrumar o env do projeto e do laradock
+[ ] Arrumar o env do projeto e do laradock
 
-[] criar banco de dados com mesmo nome do .env de dentro do projeto
+[ ] criar banco de dados com mesmo nome do .env de dentro do projeto
 
 Alterei no .env 
 - DB_PASSWORD=root
 - DB_HOST=mysql
 
 
-[] rodar comando: php artisan key:generate
+[ ] rodar comando: php artisan key:generate
 
 
-[] rodar o comando php artisan storage:link
+[ ] rodar o comando php artisan storage:link
