@@ -129,7 +129,7 @@ Primeiro acesse o site oficial do docker e faça o download (https://www.docker.
     <img src="https://user-images.githubusercontent.com/78177376/167069451-c296dc48-517e-46b5-87b1-0f907cc7d93c.png" widht="600">
 </p>
 
-- Efetuar o login com o usuário administrador: Email: admin@admin.com | Senha: password
+- Efetuar o login com o usuário administrador: ***Email: admin@admin.com | Senha: password***
 <p align="center">
     <img src="https://user-images.githubusercontent.com/78177376/167069700-03256415-4578-42fe-b68c-9af57cb4ac9b.png" widht="600">
 </p>
