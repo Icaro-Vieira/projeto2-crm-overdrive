@@ -105,22 +105,39 @@ Primeiro acesse o site oficial do docker e faça o download (https://www.docker.
 
 <br>
 
-7º. Abra novamente o seu CMD e execute o seguinte comando: <br>
+7º. Abra novamente o seu CMD e execute os seguintes comandos: <br>
 - *```docker-compose exec --user=laradock workspace bash```*, Aguarde a outra linha de comando do bash do Docker aparecer
-- E digite o comando para gerar uma chave para seu ```.env```! utilize o comando ```php artisan key:generate``` para gerar a chave. 
+- Digite o comando para instalar o composer: ```composer install``` e aguarde até a linha do bash voltar e execute o comando para gerar uma chave para seu ```.env```! utilize o comando ```php artisan key:generate``` para gerar a chave e ```php artisan storage:link``` para o seu banco de dados abrir imagens. Feito isso, siga a etapa de configuração do banco de dados.
 
 # Configurando o Banco de Dados:
 
-- Vai aparecer essa tela: preencha os campos dessa maneira e clique em continuar!
+- Acesse seeu localhost junto com a porta do seu phpmyadmin, Vai aparecer essa tela: preencha os campos dessa maneira e clique em continuar!
 <p align="center">
     <img src="https://user-images.githubusercontent.com/78177376/167002443-ef008e8a-4704-4428-b77f-d6ba0744cd85.png" widht="600">
 </p>
 
-- Apos fazer isso, crie o banco de dados com o nome que está no seu ```DB_DATABASE=projeto_crm```
+- Apos fazer isso, crie o banco de dados com o nome que está no seu ***```DB_DATABASE=projeto_crm```***
 <p align="center">
     <img src="https://user-images.githubusercontent.com/78177376/167014003-175d373f-dd0b-4ea6-b4e0-8b8dd629a991.png" widht="600">
 </p>
 
 
-- as migrations do banco de dados *```php artisan migrate```* (O comando php artisan migrate é responsável por gerar as migrações (tabelas) no banco de dados!), Aguarde aparecer a mensagem de sucesso e insira o último comando para gerar as seeds *```php artisan db: seed```* (O comando php artisan db:seed irá gerar seu usuário admin no banco de dados!)
+- E por ultimo rode os comandos para gerarem as migrations do banco de dados *```php artisan migrate```* (O comando php artisan migrate é responsável por gerar as migrações (tabelas) no banco de dados!), Aguarde aparecer a mensagem de sucesso e insira o último comando para gerar as seeds *```php artisan db: seed```* (O comando php artisan db:seed irá gerar seu usuário admin no banco de dados!)
+
+- E pronto, basta acessar seu servidor com a porta do nginx exemplo:
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/78177376/167069451-c296dc48-517e-46b5-87b1-0f907cc7d93c.png" widht="600">
+</p>
+- Efetuar o login com o usuário administrador: Email: admin@admin.com | Senha: password
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/78177376/167069700-03256415-4578-42fe-b68c-9af57cb4ac9b.png" widht="600">
+</p>
+- Efetuado o login, irá aparecer essa tela:
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/78177376/167069865-a57e55a5-6615-4945-bca9-be42b69f50da.png" widht="600">
+</p>
+
+- Clique em List of Companies para Criar ou Visualizar as Empresas Cadastradas ou Clique em List of Employees para Criar ou Visualizar os Employees Cadastrados.
+
+
 
