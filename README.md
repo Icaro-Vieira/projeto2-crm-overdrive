@@ -122,7 +122,7 @@ Primeiro acesse o site oficial do docker e faça o download (https://www.docker.
 </p>
 
 
-- E por ultimo rode os comandos para gerarem as migrations do banco de dados *```php artisan migrate```* (O comando php artisan migrate é responsável por gerar as migrações (tabelas) no banco de dados!), Aguarde aparecer a mensagem de sucesso e insira o último comando para gerar as seeds *```php artisan db: seed```* (O comando php artisan db:seed irá gerar seu usuário admin no banco de dados!)
+- E por ultimo rode os comandos para gerarem as migrations do banco de dados *```php artisan migrate```* (O comando php artisan migrate é responsável por gerar as migrações (tabelas) no banco de dados!), Aguarde aparecer a mensagem de sucesso e insira o último comando para gerar as seeds *```php artisan db:seed```* (O comando php artisan db:seed irá gerar seu usuário admin no banco de dados!)
 
 - E pronto, basta acessar seu servidor com a porta do nginx exemplo: ```localhost:80```
 <p align="center">
